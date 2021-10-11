@@ -1,10 +1,8 @@
-function hasTargetSum(array, target) {
+function hasTargetSum(array, winningSum) {
   const previousNums = {};
   for (let i = 0; i < array.length; i++) {
-    // console.log(previousNums, target); <- how I checked to make sure the object wasn't adding numbers that were themselves greater than the target sum.
     const currentNum = array[i];
-    const winningNum = target - currentNum;
-    if (currentNum >= target) continue;
+    const winningNum = winningSum - currentNum;
     if (winningNum in previousNums) return true;
     previousNums[currentNum] = i;
   }
